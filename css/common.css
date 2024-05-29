@@ -11,7 +11,7 @@ body {
   flex-direction: column;
 }
 .footer_content {
-  width: 1000px !important;
+  width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
@@ -25,7 +25,7 @@ body {
 }
 .header_title {
   display: flex;
-  margin-top: 5%;
+  justify-content: space-between;
 }
 .header_text {
   margin-left: 45%;
@@ -35,7 +35,14 @@ footer {
   height: 300px;
 }
 .logo-header {
-  width: 50px;
+  width: 100px;
+  margin-top: 10px;
+}
+.nav-text {
+  display: flex;
+  align-items: center;
+  width: 35%;
+  justify-content: space-between;
 }
 .sm-icons {
   margin-top: 20px;
@@ -64,7 +71,7 @@ a {
   margin: auto;
 }
 header {
-  background-image: url(../images/header.jpg);
+  background-image: url(/images/header.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -127,6 +134,7 @@ input {
     "first first first first"
     "main main main main"
     "scnd scnd scnd scnd"
+    "thrd thrd thrd thrd"
     "last last last last";
 }
 .item1 {
@@ -139,12 +147,16 @@ input {
   grid-area: scnd;
 }
 .item4 {
-  grid-area: last;
+  grid-area: thrd;
 }
 .item5 {
-  grid-area: right;
+  grid-area: last;
 }
 .item6 {
+  grid-area: right;
+}
+
+.item7 {
   grid-area: left;
 }
 
@@ -154,6 +166,12 @@ input {
   padding: 20px 0;
   font-size: 30px;
 }
+
+.category-img{
+  height: 200px;
+  width: auto;
+}
+
 .socialmedia {
   height: 25px;
   margin: 9px;
@@ -162,6 +180,27 @@ input {
 .norm-links {
   color: black;
   text-decoration: wavy;
+}
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #ff69b4c2;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 130%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 950px) {
