@@ -1,7 +1,5 @@
 /* JS Code, der nur auf der Game Page verwendet wird */
 
-/* JS Code, der nur auf der Game Page verwendet wird */
-
 const dino = document.getElementById("game-dino");
 const rock = document.getElementById("game-rock");
 const score = document.getElementById("game-score");
@@ -89,4 +87,3 @@ const startGameLoop = () => {
     }
   }, 50);
 };
-
