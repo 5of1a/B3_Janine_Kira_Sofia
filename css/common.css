@@ -71,7 +71,7 @@ a {
   margin: auto;
 }
 header {
-  background-image: url(images/header.jpg), url(header.jpg), url(/images/header.jpg);
+  background-image: url(../images/header.jpg);
   background-size: cover;
   background-position: center;
 }
