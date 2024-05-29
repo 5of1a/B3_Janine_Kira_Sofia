@@ -1,1 +1,22 @@
-
+.gewinnspiel-button {
+    border-radius: 15px;
+    height: 50px;
+    width: 150px;
+  }
+  .gewinnspiel-text {
+    color: black;
+  }
+  .gewinnspiel-text:hover {
+    color: #ff69b4c2;
+  }
+  
+  .brand-logo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .brand-logo {
+    height: 100px;
+    width: auto;
+  }
