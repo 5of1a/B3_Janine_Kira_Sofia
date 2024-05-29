@@ -9,7 +9,6 @@
     />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/common.css" />
-    <script src="js/common.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,10 +20,16 @@
     <header>
       <div class="header_content">
         <nav>
-          <img class="logo-header" src="images/Logo.png" alt="logo" />
-          <a href="index.html">Home</a>
-          <a href="shop.html">Shop</a>
-          <a class="active" href="about_us.html">Über uns</a>
+          <div>
+            <a href="index.html"
+              ><img class="logo-header" src="images/Logo.png" alt="logo"
+            /></a>
+          </div>
+          <div class="nav-text">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a class="active" href="about_us.html">Über uns</a>
+          </div>
         </nav>
         <div class="header_title">
           <h1>Über uns</h1>
@@ -44,21 +49,48 @@
     <main>
       <div class="grid-container">
         <div class="item1">
-          <p>grid-container vorbereitung:</p>
+          <p>
+            Unsere Mission und unsere Werte
+          </p>
+          <div>
+            <p>
+              Bei RehabilitHair ist es unsere Mission, die Haarpflegeindustrie zu revolutionieren, indem wir ausschließlich auf natürliche, vegane und tierversuchsfreie Inhaltsstoffe setzen. Unser Ziel ist es, die Gesundheit und das Wohlbefinden unserer Kunden durch Produkte zu fördern, die frei von harten Chemikalien sind und stattdessen nährende, ökologisch verantwortungsvolle Alternativen bieten.
+            </p>
+            <p>
+              Wir sind fest davon überzeugt, dass wahre Schönheit durch die Reinheit der Natur verstärkt wird. Deshalb engagieren wir uns dafür, nur die reinsten Zutaten zu verwenden, die sicher für unsere Kunden und schonend für den Planeten sind. Jedes unserer Produkte ist das Ergebnis rigoroser Forschung und Entwicklung, um sicherzustellen, dass es nicht nur effektiv, sondern auch umweltfreundlich ist.
+            </p>
+          </div>
+          <div>
+            <p>
+              Unser Engagement für Transparenz und Integrität spiegelt sich in jedem Schritt unseres Produktionsprozesses wider. Bei RehabilitHair fördern wir eine Gemeinschaft, die Wert auf gesundes Leben und nachhaltigen Konsum legt. Wir laden jeden ein, Teil dieser Bewegung zu werden, die nicht nur das Haar verschönert, sondern auch die Welt.
+            </p>
+            <img src="images/gruppe.jpg" alt="Teambild">
+          </div>
         </div>
-        <div>1</div>
-        <div>2</div>
+        <div class="item2">
+          <p>
+            KONTAKTIERE UNS
+          </p>
+          <p>
+            Hast Du Fragen, Wünsche oder Anregungen? Wir sind für Dich da.
+          </p>
+        </div>
+
+        <!--
         <div>3</div>
         <div>4</div>
         <div>5</div>
         <div>6</div>
         <div>7</div>
         <div>8</div>
+          -->
+        
       </div>
+
       <div class="form">
-        <form action="xy" method="post">
+        <form>
           <div class="formelements">
-            <label for="firstname">Name</label>
+            <label for="name">Name</label>
             <input
               type="text"
               name="name"
@@ -73,7 +105,7 @@
               type="email"
               name="email"
               id="email"
-              placeholder="muster@mail.com"
+              placeholder="E-Mail Adresse"
             />
             <div class="error"></div>
           </div>
@@ -88,7 +120,7 @@
             <div class="error"></div>
           </div>
           <div class="formelements">
-            <label for="tel">Deine Nachricht</label>
+            <label for="text">Deine Nachricht</label>
             <textarea
               rows="4"
               cols="50"
@@ -104,6 +136,7 @@
               value="Formular Absenden"
             />
           </div>
+          <div id="spinner" class="spinner" style="display: none"></div>
         </form>
       </div>
     </main>
@@ -174,5 +207,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/server.js"></script>
+    <script src="js/common.js"></script>
   </body>
 </html>
