@@ -1,44 +1,166 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RehabilitHair – Gewinnspiel</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/game.css" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="icon" href="assets/images/favicon.ico">
   </head>
 
   <body>
-    <div class="header">header</div>
+    <header>
+      <div class="header_content">
+        <nav>
+          <div>
+            <a href="index.html"
+              ><img class="logo-header" src="assets/images/Logo.png" alt="logo"></a>
+          </div>
+          <div class="nav-text">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about_us.html">Über uns</a>
+          </div>
+        </nav>
+        <div class="header_title">
+          <h1>Über uns</h1>
+          <div class="header_text">
+            <p>
+              Pflege dein Haar mit RehabilitHair. Unsere Formeln kombinieren
+              Effizienz und Nachhaltigkeit für sichtbar gesünderes Haar.
+            </p>
+            <p>
+              Tauche ein in die Welt der spezialisierten Haarpflege, die auf
+              deine Bedürfnisse abgestimmt ist.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="content">
       <div id="game-container">
         <div class="game-info">
-          Drücke eine Taste, um zu springen.<br />
-          Weiche den Steinen aus.<br />
-          Erreiche 100 Punkte, um einen Preis zu gewinnen.
+          Drücke eine Taste, um zu springen.<br>
+          Weiche dem heissen Haarföhn aus.<br>
+          Erreiche 500 Punkte, um einen Rabattcode zu gewinnen.
         </div>
 
         <div id="game">
           <div id="game-start">
             <div class="startScreenText">Klicke, um das Spiel zu starten.</div>
           </div>
-          <div id="game-background"></div>
-          <div id="game-dino"></div>
-          <div id="game-rock"></div>
+          <div id="game-background">
+            <div class="background-layer" id="bg-layer-1"></div>
+            <div class="background-layer" id="bg-layer-2"></div>
+          </div>
+          <div>
+            <img
+            id="static-girl"
+            src="/assets/images/girl.png"
+            alt="Static Image">
+          </div>
+          <div id="game-girl"></div>
+          <div id="game-dryer" class="dryer-pos"></div>
           <div id="game-score">0</div>
         </div>
 
-        <div id="game-end" class="hidden">
-          <div id="game-winner" class="hidden">
-            ⭐ ⭐ ⭐ Glückwunsch ⭐ ⭐ ⭐ <br />
-            Du hast mehr als 100 Punkte erzielt.
-          </div>
-          Das Spiel ist zu Ende.<br />
-          Klicke auf das Spiel, um erneut zu spielen.
-        </div>
+<!-- Popup Fenster wenn gewonnen-->
+<div id="pop-win" class="popup">
+  <div class="popup-content">
+      <img class="icon" src="assets/images/checkmark.png" alt="Success Icon">
+      <h1 class="gewonnen">Glückwunsch!</h1>
+      <span id="win-score" class="score-text"></span>
+      <p>Du hast einen speziellen Rabattcode für unseren Haarpflegeshop verdient!
+        <br>
+        Verwende den Code <b>GEWINN500</b> an der Kasse, um deinen exklusiven Rabatt zu geniessen.</p>
+      <button id="dismiss-win">OK</button>
+  </div>
+</div>
+
+<!-- Popup Fenster wenn verloren -->
+<div id="pop-lose" class="popup">
+  <div class="popup-content">
+      <img class="icon" src="assets/images/fail.png" alt="Fail Icon">
+      <h1 class="verloren">Schade :(</h1>
+      <span id="lose-score" class="score-text"></span>
+      <p>Leider hast du die Mindestpunktzahl von 500 Punkten nicht erreicht.
+        <br>
+        Versuche es erneut, um einen Rabattcode für unseren Haarpflegeshop zu gewinnen.</p>
+      <button id="dismiss-lose">OK</button>
+  </div>
+</div>
+
       </div>
     </div>
-    <div class="footer">footer</div>
+    <footer>
+      <div class="footer_content">
+        <div>
+          <img class="logo-footer" src="assets/images/Logo.png" alt="Logo">
+          <div class="sm-icons">
+            <a
+              href="https://www.instagram.com/explore/tags/haircare/"
+              target="_blank"
+              ><img
+                class="socialmedia"
+                src="assets/images/instagram2.png"
+                alt="instagram"></a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              ><img
+                class="socialmedia"
+                src="assets/images/tiktok.png"
+                alt="TikTok"></a>
+            <a
+              href="https://www.facebook.com/haircareangels/?locale=de_DE"
+              target="_blank"
+              ><img
+                class="socialmedia"
+                src="assets/images/facebook.png"
+                alt="facebook">
+            </a>
+            <a
+              href="https://www.linkedin.com/company/haircaregroup/?originalSubdomain=de"
+              target="_blank"
+              ><img
+                class="socialmedia"
+                src="assets/images/linkedin.png"
+                alt="linkedin"></a>
+          </div>
+        </div>
+        <div>
+          <h4><strong>Kontakt</strong></h4>
+          <p>Zweifel Kira, Moll Sofia, Janine Studhalter</p>
+          <p>Musterstrasse 99</p>
+          <p>9999 Musterhausen</p>
+          <br>
+          <p>+41 79 200 20 20</p>
+          <p>muster@gmail.com</p>
+        </div>
+        <div>
+          <h4><strong>Produkte</strong></h4>
+          <p>Repair & Care</p>
+          <p>Hair Oiling</p>
+          <p>Styling</p>
+          <p>Coloring</p>
+        </div>
+        <div>
+          <h4><strong>Rechtliches</strong></h4>
+          <a class="norm-links" href="https://www.haar-shop.ch/de/impressum"
+            ><p>Impressum</p></a
+          >
+          <a class="norm-links" href="https://www.haar-shop.ch/de/datenschutz"
+            ><p>Datenschutz</p></a
+          >
+          <a class="norm-links" href="https://www.haar-shop.ch/de/agb"
+            ><p>AGBs</p></a
+          >
+          <p>Das ist ein Schulprojekt und keine reale Website</p>
+        </div>
+      </div>
+    </footer>
     <script src="js/game.js"></script>
   </body>
 </html>
