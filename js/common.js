@@ -1,5 +1,3 @@
-/* JS Code, der nur auf mehreren Pages verwendet wird */
-
 const form = document.querySelector("form");
 const spinner = document.getElementById("spinner");
 
@@ -20,20 +18,26 @@ form.addEventListener("submit", function (event) {
     errorDisplay.style.display = "block";
   }
 
+  let hasError = false;
+
   document
     .querySelectorAll(".error")
     .forEach((e) => (e.style.display = "none"));
 
   if (nameValue === "") {
     displayError(name, "Bitte geben Sie Ihren vollständigen Namen ein.");
-    return;
+    hasError = true;
   }
   if (!emailValue.includes("@")) {
     displayError(email, "Bitte geben Sie eine gültige E-Mail-Adresse ein.");
-    return;
+    hasError = true;
   }
   if (telValue === "") {
     displayError(tel, "Bitte geben Sie Ihre Telefonnummer ein.");
+    hasError = true;
+  }
+
+  if (hasError) {
     return;
   }
 
