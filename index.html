@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
   <head>
     <title>RehabilitHair – Home</title>
     <meta charset="utf-8" />
@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="assets/images/favicon.ico" />
   </head>
   <body>
     <header>
@@ -22,7 +23,7 @@
         <nav>
           <div>
             <a href="index.html"
-              ><img class="logo-header" src="images/Logo.png" alt="logo"
+              ><img class="logo-header" src="assets/images/Logo.png" alt="logo"
             /></a>
           </div>
           <div class="nav-text">
@@ -30,9 +31,20 @@
             <a href="shop.html">Shop</a>
             <a href="about_us.html">Über uns</a>
           </div>
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              <li><a class="active" href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about_us.html">Über uns</a></li>
+            </ul>
+          </div>
         </nav>
         <div class="header_title">
-          <h1>Rehabilithair</h1>
+          <h1>REHABILITHAIR</h1>
           <div class="header_text">
             <p>
               Pflege dein Haar mit RehabilitHair. Unsere Formeln kombinieren
@@ -48,99 +60,202 @@
     </header>
     <main>
       <div class="grid-container">
-        <div class="item1">
-          <p>Zum Gewinnspiel</p>
-          <div>
-            <button class="gewinnspiel-button">
-              <a href="game.html" target="_blank"
-                ><p class="gewinnspiel-text">Spiel starten</p></a
-              >
-            </button>
-          </div>
-          <div >
-            <p>
-              Starte das Spiel und sicher dir deinen exklusiven Rabattcode. Jetzt mitmachen und bei deinem nächsten Einkauf sparen!
-            </p>
+        <div class="item1 item1-game">
+          <div class="content-items">
+            <h3 class="text-game">ZUM GEWINNSPIEL</h3>
+            <div class="game-item">
+              <div>
+                <div>
+                  <a href="game.html" target="_blank">
+                    <button class="gewinnspiel-button">
+                      <p class="gewinnspiel-text">Spiel starten</p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <p class="text-grid text-game">
+                  Starte das Spiel und sicher dir deinen exklusiven Rabattcode.
+                  Jetzt mitmachen und bei deinem nächsten Einkauf sparen!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="item2">
-          <div>
-            <p>
-              Produkt des Monats
-            </p>
-            <img src="images/Jojobaoil.-bearbeitetpsd.png" alt="Jojoba Haaröl">
-          </div>
-          <div>
-            <p>
-              Jojoba Shine Essence
-            </p>
-            <p>
-              Dieses 100% natürliche Öl versorgt dein Haar intensiv mit Feuchtigkeit und Nährstoffen. Geeignet für alle Haartypen, um das Haar gesund zu halten. Es verleiht deinem Haar Glanz und Geschmeidigkeit, ohne zu beschweren. Perfekt für die tägliche Pflege, unterstützt es die Gesundheit deiner Haare und Kopfhaut. Hol dir das Must-Have für strahlend schönes Haar!
-            </p>
+          <div class="content-items">
+            <div id="newsletter-popup" class="popup">
+              <div class="popup-content">
+                <span class="close">&times;</span>
+                <h2>NEWSLETTER</h2>
+                <form id="newsletter-form">
+                  <label for="email">Email:</label>
+                  <input
+                    class="newsletter-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                  />
+                  <button type="submit" class="newsletter-button" disabled>
+                    Abonnieren
+                  </button>
+                </form>
+                <div id="thank-you-message" style="display: none">
+                  <h3>Danke für Ihre Anmeldung!</h3>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <h3>PRODUKT DES MONATS</h3>
+                <div class="product-otm">
+                  <div class="product-otm-1">
+                    <img
+                      class="potm-pic"
+                      src="assets/images/Jojobaoil.-bearbeitetpsd.png"
+                      alt="Jojoba Haaröl"
+                    />
+                  </div>
+                  <div class="product-otm-2">
+                    <h4>Jojoba Shine Essence</h4>
+                    <p class="text-potm">
+                      Dieses 100% natürliche Öl versorgt dein Haar intensiv mit
+                      Feuchtigkeit und Nährstoffen. Geeignet für alle Haartypen,
+                      um das Haar gesund zu halten. Es verleiht deinem Haar
+                      Glanz und Geschmeidigkeit, ohne zu beschweren. Perfekt für
+                      die tägliche Pflege, unterstützt es die Gesundheit deiner
+                      Haare und Kopfhaut. Hol dir das Must-Have für strahlend
+                      schönes Haar!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="item3">
-          <div>
-            <p>
-              Warum RehabilitHair?
-            </p>
-            <p>
-              Bei uns steht Deine Haargesundheit im Mittelpunkt. Unsere Produkte sind wissenschaftlich entwickelt, um Haarprobleme zu lösen und das natürliche Gleichgewicht von Haar und Kopfhaut zu unterstützen. Sie sind aus hochwertigen Naturstoffen gefertigt, frei von schädlichen Chemikalien und passen zu jedem Haartyp. Mit RehabilitHair wählst Du nicht nur wirksame Pflegeprodukte, sondern unterstützt auch unser Engagement für Umweltschutz. Probiere es aus und spüre den Unterschied, den echte Pflege macht. Entdecke Produkte, die Dein Haar natürlich strahlen lassen.
-            </p>
+        <div class="item3 item3-indexpage">
+          <div class="content-items">
+            <div>
+              <h3 class="why-rehabilithair">WARUM REHABILITHAIR?</h3>
+              <p class="text-wr">
+                Bei uns steht Deine Haargesundheit im Mittelpunkt. Unsere
+                Produkte sind wissenschaftlich entwickelt, um Haarprobleme zu
+                lösen und das natürliche Gleichgewicht von Haar und Kopfhaut zu
+                unterstützen. Sie sind aus hochwertigen Naturstoffen gefertigt,
+                frei von schädlichen Chemikalien und passen zu jedem Haartyp.
+                Mit RehabilitHair wählst Du nicht nur wirksame Pflegeprodukte,
+                sondern unterstützt auch unser Engagement für Umweltschutz.
+                Probiere es aus und spüre den Unterschied, den echte Pflege
+                macht. Entdecke Produkte, die Dein Haar natürlich strahlen
+                lassen.
+              </p>
+            </div>
           </div>
         </div>
         <div class="item4">
-          <p>
-            Neueste Produkte
-          </p>
-          <div>
-            <img src="images/Rosemaryoil-bearbeitet.png" alt="Produkt 1">
-            <img src="images/Arganoil-bearbeitet.png" alt="Produkt 2">
-            <img src="images/Hairspray-bearbeitet.png" alt="Produkt 3">
+          <div class="content-items">
+            <h3>NEUSTE PRODUKTE</h3>
+            <div class="image-slider">
+              <button class="prev" onclick="prevSlide()">&#10094;</button>
+              <img
+                class="index-pic"
+                src="assets/images/Rosemaryoil-bearbeitet.png"
+                alt="Produkt 1"
+              />
+              <img
+                class="index-pic"
+                src="assets/images/Arganoil-bearbeitet.png"
+                alt="Produkt 2"
+              />
+              <img
+                class="index-pic"
+                src="assets/images/Hairspray-bearbeitet.png"
+                alt="Produkt 3"
+              />
+              <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
           </div>
         </div>
-        <div class="item5">
-          <p>Top Brands</p>
-          <div class="brand-logo-container">
-            <img src="images/wella_logo.png" alt="Wella Logo" class="brand-logo">
-            <img src="images/schwarzkopf_logo.png" alt="Schwarzkopf Logo" class="brand-logo">
-            <img src="images/Kerastase-Logo.png" alt="Kerastase Logo" class="brand-logo">
-            <img src="images/got2b_logo.png" alt="got2b Logo" class="brand-logo">
+        <div class="item5 item5-indexpage">
+          <div class="content-items">
+            <h3 class="brand-title">TOP BRANDS</h3>
+            <div class="top-brand">
+              <div class="brand-logo-container">
+                <div class="brand-logo-slider">
+                  <img
+                    src="assets/images/wella_logo.png"
+                    alt="Wella Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/schwarzkopf_logo.png"
+                    alt="Schwarzkopf Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/Kerastase-Logo.png"
+                    alt="Kerastase Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/got2b_logo.png"
+                    alt="got2b Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/wella_logo.png"
+                    alt="Wella Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/schwarzkopf_logo.png"
+                    alt="Schwarzkopf Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/Kerastase-Logo.png"
+                    alt="Kerastase Logo"
+                    class="brand-logo"
+                  />
+                  <img
+                    src="assets/images/got2b_logo.png"
+                    alt="got2b Logo"
+                    class="brand-logo"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!--
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        -->
       </div>
     </main>
     <footer>
       <div class="footer_content">
-        <div>
-          <img class="logo-footer" src="images/Logo.png" alt="Logo" />
+        <div class="footer-items">
+          <img class="logo-footer" src="assets/images/Logo.png" alt="Logo" />
           <div class="sm-icons">
             <a
               href="https://www.instagram.com/explore/tags/haircare/"
               target="_blank"
               ><img
                 class="socialmedia"
-                src="images/instagram2.png"
+                src="assets/images/instagram2.png"
                 alt="instagram"
             /></a>
             <a
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               target="_blank"
-              ><img class="socialmedia" src="images/tiktok.png" alt="TikTok"
+              ><img
+                class="socialmedia"
+                src="assets/images/tiktok.png"
+                alt="TikTok"
             /></a>
             <a
               href="https://www.facebook.com/haircareangels/?locale=de_DE"
               target="_blank"
               ><img
                 class="socialmedia"
-                src="images/facebook.png"
+                src="assets/images/facebook.png"
                 alt="facebook"
             /></a>
             <a
@@ -148,12 +263,12 @@
               target="_blank"
               ><img
                 class="socialmedia"
-                src="images/linkedin.png"
+                src="assets/images/linkedin.png"
                 alt="linkedin"
             /></a>
           </div>
         </div>
-        <div>
+        <div class="footer-items">
           <h4><strong>Kontakt</strong></h4>
           <p>Zweifel Kira, Moll Sofia, Janine Studhalter</p>
           <p>Musterstrasse 99</p>
@@ -162,14 +277,14 @@
           <p>+41 79 200 20 20</p>
           <p>muster@gmail.com</p>
         </div>
-        <div>
+        <div class="footer-items">
           <h4><strong>Produkte</strong></h4>
           <p>Repair & Care</p>
           <p>Hair Oiling</p>
           <p>Styling</p>
           <p>Coloring</p>
         </div>
-        <div>
+        <div class="footer-items">
           <h4><strong>Rechtliches</strong></h4>
           <a class="norm-links" href="https://www.haar-shop.ch/de/impressum"
             ><p>Impressum</p></a
@@ -184,5 +299,6 @@
         </div>
       </div>
     </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>
