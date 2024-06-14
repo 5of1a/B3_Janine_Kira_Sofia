@@ -6,10 +6,6 @@
 }
 
 /* Spiel-Container mit Beschreibung und Game-Over Text */
-.content-game {
-  min-height: 600px;
-}
-
 #game-container {
   width: 600px;
   margin: auto;
@@ -32,62 +28,80 @@
 }
 
 /* Elemente im Spiel */
-#game-background {
+.background-layer {
   position: absolute;
   width: 600px;
   height: 300px;
-  background-image: url("../images/background.png");
   background-size: cover;
 }
 
-.bg-animation {
-  animation: moveBg 10.33s linear infinite;
+#bg-layer-1 {
+  background-image: url(../assets/images/background-game.jpg);
+  animation: background-animation 20.33s linear infinite paused;
+}
+#bg-layer-2 {
+  background-image: url(../assets/images/background-floor.png);
+  animation: background-animation 4.33s linear infinite paused;
 }
 
-@keyframes moveBg {
+@keyframes background-animation {
   0% {
-    background-position: 0 0;
+    background-position: 0px 0px;
   }
 
   100% {
-    background-position: -600px 0;
+    background-position: -600px 0px;
   }
 }
 
-#game-dino {
-  height: 75px;
-  width: 75px;
-  top: 225px;
+#static-girl {
   position: relative;
-  background-image: url("../images/dino.png");
+  bottom: -162px;
+  left: 50px;
+}
+
+#game-girl {
+  height: 150px;
+  width: 150px;
+  top: 150px;
+  position: relative;
+  background-image: url("../assets/images/girl.gif");
   background-size: cover;
 }
 
-.dino-dies {
+.girl-dies {
   background-color: red;
 }
 
-#game-rock {
-  width: 50px;
-  height: 50px;
+.dryer-pos {
+  width: 80px;
+  height: 80px;
   position: relative;
-  top: 175px;
-  left: 550px;
-  background-image: url("../images/rock.png");
+  top: 77px;
+  left: 520px;
+  background-image: url("../assets/images/hairdryer.gif");
   background-size: cover;
 }
 
-.rock-animation {
-  animation: rock 1.33s infinite;
+.new-pos {
+  top: 90px;
 }
 
-@keyframes rock {
+.dryer-animation {
+  animation: dryer 1.33s linear infinite;
+}
+
+.faster-dryer-animation {
+  animation: dryer 1s linear infinite;
+}
+
+@keyframes dryer {
   0% {
-    left: 550px;
+    left: 526px;
   }
 
   100% {
-    left: -50px;
+    left: -20px;
   }
 }
 
@@ -97,19 +111,19 @@
 
 @keyframes jump {
   0% {
-    top: 225px;
+    top: 150px;
   }
 
   50% {
-    top: 75px;
+    top: 0px;
   }
 
   75% {
-    top: 75px;
+    top: 0px;
   }
 
   100% {
-    top: 225px;
+    top: 150px;
   }
 }
 
@@ -135,4 +149,74 @@
   top: 0;
   right: 0;
   margin: 12px;
+}
+
+/* Popup Fenster */
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content img.icon {
+  width: 50px;
+}
+
+.gewonnen {
+  color: green;
+  margin-bottom: 40px;
+}
+
+.verloren {
+  color: red;
+  margin-bottom: 40px;
+}
+
+.popup-content p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.score-text {
+  color: #333;
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  background-color: pink;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.popup-content button:hover {
+  background-color: #333;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
