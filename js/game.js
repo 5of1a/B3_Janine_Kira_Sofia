@@ -1,24 +1,38 @@
-/* JS Code, der nur auf der Game Page verwendet wird */
-
-const dino = document.getElementById("game-dino");
-const rock = document.getElementById("game-rock");
+const girl = document.getElementById("game-girl");
+const staticGirl = document.getElementById("static-girl");
+const dryer = document.getElementById("game-dryer");
 const score = document.getElementById("game-score");
 const gameBox = document.getElementById("game");
 const background = document.getElementById("game-background");
-const gameOver = document.getElementById("game-end");
-const winnerText = document.getElementById("game-winner");
 const startScreen = document.getElementById("game-start");
+const backgroundAudio = new Audio("assets/audio/background.mp3");
+const POINTS_TO_WIN = 500;
 
+let isGameActive = false; // Flag Variable für wenn Game nicht aktiv ist
 let gameLoopInterval = 0;
-const POINTS_TO_WIN = 100;
 
+// bei reloaden der Seite
+document.addEventListener("DOMContentLoaded", () => {
+  girl.classList.add("hidden");
+  staticGirl.classList.remove("hidden");
+  dryer.classList.add("new-pos");
+  backgroundAudio.load(); // damit die Musik erneut von vorne anfängt
+  });
+
+//während des Games
 const startGame = () => {
-  gameOver.classList.add("hidden");
-  background.classList.add("bg-animation");
-  rock.classList.add("rock-animation");
+  girl.classList.remove("hidden");
+  staticGirl.classList.add("hidden");
+  dryer.classList.remove("new-pos");
+  background.querySelector("#bg-layer-1").style.animationPlayState = "running";
+  background.querySelector("#bg-layer-2").style.animationPlayState = "running";
+  dryer.classList.add("dryer-animation");
   startScreen.classList.add("hidden");
+  backgroundAudio.load();
+  backgroundAudio.play();
   resetScore();
   startGameLoop();
+  isGameActive = true;
 };
 
 const resetScore = () => {
@@ -26,17 +40,19 @@ const resetScore = () => {
 };
 
 const jump = () => {
-  dino.classList.add("jump-animation");
-  setTimeout(() => {
-    dino.classList.remove("jump-animation");
-  }, 500);
+  if (isGameActive) {
+    girl.classList.add("jump-animation");
+    setTimeout(() => {
+      girl.classList.remove("jump-animation");
+    }, 500);
+  }
 };
 
 const dieAnimation = () => {
-  dino.classList.add("dino-dies");
+  girl.classList.add("girl-dies");
   return new Promise((resolve) =>
     setTimeout(() => {
-      dino.classList.remove("dino-dies");
+      girl.classList.remove("girl-dies");
       resolve();
     }, 500)
   );
@@ -48,42 +64,87 @@ gameBox.addEventListener("click", () => {
   }
 });
 
-window.addEventListener("keypress", () => {
-  console.log("hello");
-  if (!dino.classList.contains("jump-animation")) {
-    console.log("juw");
+
+window.addEventListener("keydown", (event) => {
+  event.preventDefault(); // scrollt Website nicht wenn man Taste drückt
+
+  if (isGameActive && !girl.classList.contains("jump-animation")) {
+    const jumpSound = new Audio("assets/audio/jump.mp3");
+    jumpSound.play();
     jump();
   }
 });
 
+// nach dem Game
 const stopGame = async () => {
   await dieAnimation();
-  background.classList.remove("bg-animation");
-  rock.classList.remove("rock-animation");
+  isGameActive = false;
+  girl.classList.add("hidden");
+  staticGirl.classList.remove("hidden");
+  dryer.classList.add("new-pos");
+  backgroundAudio.pause();
+  background.querySelector('#bg-layer-1').style.animationPlayState = "paused";
+  background.querySelector('#bg-layer-2').style.animationPlayState = "paused";
+  dryer.classList.remove("dryer-animation");
+  dryer.classList.remove("fast-dryer-animation");
+  dryer.classList.remove("faster-dryer-animation");
   startScreen.classList.remove("hidden");
   gameLoopInterval = clearInterval(gameLoopInterval);
-  gameOver.classList.remove("hidden");
-  if (Number(score.innerText) + 1 >= POINTS_TO_WIN) {
-    winnerText.classList.remove("hidden");
-  }
-};
+
+  checkWin();
+  };
 
 const startGameLoop = () => {
   gameLoopInterval = window.setInterval(() => {
-    const dinoTop = parseInt(
-      window.getComputedStyle(dino).getPropertyValue("top")
+    const girlTop = parseInt(
+      window.getComputedStyle(girl).getPropertyValue("top")
     );
-    const rockLeft = parseInt(
-      window.getComputedStyle(rock).getPropertyValue("left")
+    const dryerLeft = parseInt(
+      window.getComputedStyle(dryer).getPropertyValue("left")
     );
     score.innerText = Number(score.innerText) + 1;
-    if (rockLeft < 0) {
-      rock.classList.add("hidden");
-    } else {
-      rock.classList.remove("hidden");
+
+    // Wenn Score über 200 und Föhn bei Anfangsposition ist, wird Föhn schneller
+    if (Number(score.innerText) >= 200 && dryerLeft >= 520) {
+      dryer.classList.remove("dryer-animation");
+      dryer.classList.add("fast-dryer-animation");
     }
-    if (rockLeft < 50 && rockLeft > 0 && dinoTop > 150) {
+
+    // Wenn Score über 400 und Föhn bei Anfangsposition ist, wird Föhn schneller
+    if (Number(score.innerText) >= 400 && dryerLeft >= 520) {
+      dryer.classList.remove("fast-dryer-animation");
+      dryer.classList.add("faster-dryer-animation");
+    }
+
+    if (dryerLeft < 0) {
+      dryer.classList.add("hidden");
+    } else {
+      dryer.classList.remove("hidden");
+    }
+    if (dryerLeft < 79 && dryerLeft > 0 && girlTop > 125) {
+      const screamSound = new Audio("assets/audio/scream.mp3");
+      screamSound.play();
       stopGame();
     }
   }, 50);
 };
+
+// Popup Fenster
+const checkWin = () => {
+  const currentScore = Number(score.innerText);
+  if (Number(score.innerText) >= POINTS_TO_WIN) {
+    document.getElementById("pop-win").style.display = "flex";
+    document.getElementById("win-score").innerText = `Deine Punktezahl ist ${currentScore}.`;
+  } else {
+    document.getElementById("pop-lose").style.display = "flex";
+    document.getElementById("lose-score").innerText = `Deine Punktezahl ist ${currentScore}.`;
+  }
+};
+
+document.getElementById("dismiss-win").addEventListener("click", function() {
+  document.getElementById("pop-win").style.display = "none";
+});
+
+document.getElementById("dismiss-lose").addEventListener("click", function() {
+  document.getElementById("pop-lose").style.display = "none";
+});
